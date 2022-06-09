@@ -1,0 +1,27 @@
+# Ignore all
+*
+
+# Except these ...
+!.gitignore
+!README.md
+
+!index.html
+!img/**
+!scss/**
+!vendor/**
+
+!exercises/yandex.four.rules/
+!exercises/yandex.four.rules/*
+
+!exercises/yandex.Procrastinate/
+!exercises/yandex.Procrastinate/*
+
+!exercises/Final.PiperNet/
+!exercises/Final.PiperNet/*
+
+!exercises/Final.UberEats/
+!exercises/Final.UberEats/*
+
+!Figma.Odigo/
+!Figma.Odigo/*
+
