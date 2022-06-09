@@ -1,0 +1,276 @@
+/* roboto-regular - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../fonts/roboto-v27-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v27-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-italic - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local(''),
+       url('../fonts/roboto-v27-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v27-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-500 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+       url('../fonts/roboto-v27-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v27-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-700 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('../fonts/roboto-v27-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v27-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {    /*псевдоэелементы*/
+    box-sizing: inherit;    /*наследовать от родителя*/
+}                           /*то есть распространить на все элементы*/
+
+body {                      /* основные шрифтовые умолчания */
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 37px;
+  color: #000000;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wrapper {
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+.anchor {                   /*отдельным классом чтобы не залезало под шапку*/
+  position: relative;
+  left: 0;
+  top: -85px;
+}
+
+/* Header styles start */
+.header {
+  background-color: #007765;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  color: #FFFFFF;
+
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.header__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  height: 85px;
+
+}
+.header__image {
+  padding-top: 20px;
+  padding-bottom: 20px;;
+}
+
+.header__list {                     /*сами элементы меню*/
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;            /* убрать точки в списке */ 
+}
+
+.header__item::after{
+  content: "|";
+  width: 7px;
+  margin-left: 3px;                 /* компенсация пробела после инлайн-ссылок*/ 
+  margin-right: 8px;
+}
+.header__item:last-child {          /* последний лепится к краю */
+  margin-right: 0px;
+}
+
+.header__item:last-child::after {   /* разделитель после него не нужен */
+  content: "";
+}
+
+.header__link {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.header__link:hover, .header__link:focus, .header__link:active {
+  /*стили наведения, фокуса (выбор по таб), нажатия*/
+  opacity: .75;
+} 
+
+/* Header styles end */
+
+
+/* Intro styles start */
+.intro {
+  /* min-height: 100vh; */
+  background: url(../img/top_slide.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding-top: 245px;
+  padding-bottom: 160px;
+}
+
+.intro__title {
+  font-weight: 500;
+  font-size: 72px;
+  line-height: 84px;
+  text-align: center;
+  color: #FFFFFF;
+}
+/* Intro styles end */
+
+/* Problem style start */
+.problem {
+  padding-bottom: 72px;
+}
+
+.slide__title {
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 75px;
+  text-align: center;
+  color: #007765;
+  padding-top: 58px;
+}
+/* Problem style end */
+
+/* Subintro style start */
+.subintro {
+  background: url(../img/mid_slide.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.subintro__text {
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 56px;
+  text-align: center;
+  color: #FFFFFF;
+  padding-top: 128px;
+  padding-bottom: 128px;
+}
+/* Subintro style end */
+
+/* Introducing style start */
+.introducing__logo {
+  float: left;
+  margin-right: 48px;
+}
+/* Introducing style end */
+
+/* Team style start */
+.section__team {
+  background-color: #eeeeee;
+  padding-top: 0px;
+  padding-bottom: 72px;
+}
+
+.team__member__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 клетки сетки */
+  grid-auto-rows: 283px;
+  align-content: center;
+  gap: 30px;
+}
+
+.team__memeber__card {
+  display: table-cell;
+}
+
+.team__member__card-wrap {
+  display: inline;
+  vertical-align: middle;
+}
+
+.team__member__card:hover .team__member__card-pic {
+  transform: scale(1.05);
+}
+
+.team__member__card-pic {
+  display: block;
+  margin: 12px auto;
+  transition: 0.15s all;
+}
+
+.team__member__card-name {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  color: #007765;
+  text-align: center;
+  margin: 0;
+}
+
+.team__member__card-pos {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+  text-align: center;
+  margin: 0;
+}
+/* Team style end */
+
+/* Footer */
+.footer {
+  background-color: #333333;
+}
+
+.footer__note-wrap {
+  width: 540px;
+  margin: 0 auto;
+  padding-top: 50px;
+  padding-bottom: 62px;
+}
+
+.footer__note {
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #FFFFFF;
+}

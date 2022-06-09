@@ -1,0 +1,621 @@
+/* roboto-regular - latin_cyrillic */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+         url('../fonts/roboto-v27-latin_cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/roboto-v27-latin_cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  
+  /* roboto-500 - latin_cyrillic */
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src: local(''),
+         url('../fonts/roboto-v27-latin_cyrillic-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/roboto-v27-latin_cyrillic-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  
+
+html {
+    /*высоту/ширину элементов считать по границе, а не по содержимому*/
+    box-sizing: border-box; 
+}
+
+*, *::before, *::after {    /*псевдоэелементы*/
+    box-sizing: inherit;    /*наследовать от родителя*/
+}                           /*то есть распространить на все элементы*/
+
+body {                      /* основные шрифтовые умолчания */
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 37px;
+    color: #000000;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.anchor {                   /*чтобы не залезало под шапку*/
+    position: relative;
+    left: 0;
+    top: -72px;
+}
+
+.wrapper {
+    margin: 0 auto;
+    height: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+@media screen and (min-width: 992px) {
+    .wrapper { max-width: 968px; }
+    .intro { height: 363px; }
+    .intro__info { margin-top: 80px; }
+    .intro__rest-name {
+        margin-top: 38px;
+        margin-bottom: 38px; }
+    .intro__rest-name { font-size: 36px; }
+    .menu__card-price { margin-top: 68px; }
+    .menu__card { margin-top: 58px; }
+    .menu__card-pic {
+        height: 160px;
+        width: 170px;}
+    .menu__card-name { font-size: 16px; }
+    .filter__nav { display: block; }
+    .menu__part-name {
+        font-size: 22px;
+        font-weight: normal;
+        line-height: 34px;
+        color: #1D1D1D;
+        margin-top: 52px;
+        margin-bottom: 0px;
+        text-align: left;
+    }
+    .menu__part-name-line {
+        display: none;
+    }
+}
+  
+@media screen and (max-width: 991px) {
+    .wrapper { max-width: 768px; }
+    .intro { height: 363px; }
+    .intro__info { margin-top: 80px; }
+    .intro__rest-name {
+        margin-top: 38px;
+        margin-bottom: 38px; }
+    .intro__rest-name { font-size: 36px; }
+    .menu__card-price { margin-top: 68px; }
+    .menu__card { margin-top: 32px; }
+    .menu__card-pic {
+        height: 160px;
+        width: 200px;}
+    .menu__card-name { font-size: 16px; }
+    .filter__nav { display: block; }
+    .menu__part-name {
+        font-size: 22px;
+        font-weight: normal;
+        line-height: 34px;
+        color: #1D1D1D;
+        margin-top: 52px;
+        margin-bottom: 0px;
+        text-align: left;
+    }
+    .menu__part-name-line {
+        display: none;
+    }
+}
+  
+@media screen and (max-width: 767px) {
+    .wrapper { max-width: 320px; }
+    .header__btns-basket { display: none; }
+    .intro { height: 255px; }
+    .intro__info { margin-top: 131px; }
+    .intro__rest-name {
+        margin-top: 24px;
+        margin-bottom: 24px; }
+    .intro__rest-name { font-size: 24px; }
+    .menu__card-price { margin-top: 18px; }
+    .menu__card { margin-top: 16px; }
+    .menu__card-pic {
+        height: 102px;
+        width: 102px;
+    }
+    .menu__card-name { font-size: 13px; }
+    .filter__nav { display: none; }
+    .menu__part-name {
+        font-size: 22px;
+        font-weight: normal;
+        line-height: 34px;
+        color: #1D1D1D;
+        margin-top: 112px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+        text-align: center;
+    }
+    .menu__part-name-line {
+        display: block;
+        background: #757575;
+        width: 50px;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Header start */
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0px 0px 16px rgba(38, 38, 38, 0.16);
+}
+
+.header__wrapper {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.header__home-logo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.header__btns {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.header__btns-sign-in {
+    font-weight: 500;
+    font-size: 13px;
+    width: 78px;
+    height: 40px;
+    border: 1px solid #E0E0E0;
+    box-sizing: border-box;
+    border-radius: 2px;
+    background-color: #fff;
+    margin-right: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.header__btns-sign-in:hover, .header__btns-sign-in:focus, .header__btns-sign-in:active {
+    /*стили наведения, фокуса (выбор по таб), нажатия*/
+    opacity: .75;
+    background-color: rgb(230, 230, 230);
+  }     
+
+.header__btns-basket {
+    height: 72px;
+    width: 40px;
+    border: none;
+    background-color: #fff;
+}
+
+/* Header end */
+
+
+/* Intro start */
+
+.rest__intro {
+    background: url(../img/jumbotron.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 364px;;
+    margin-top: 72px;
+}
+/* Intro end */
+
+/* Search start */
+.search {
+    margin-top: 72px;
+}
+
+.search__wrapper {
+    height: 79px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.search__input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(117, 117, 117, 0.3);
+    font-size: 18px;
+    color: rgba(98, 98, 98, 0.5);
+}
+
+.search__input::placeholder {
+    font-size: 16px;
+    color: #626262;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+}
+
+/* Search end */
+
+
+/* Restaurants start */
+.restaurants {
+    margin-top: 72px;
+    margin-bottom: 80px;
+}
+
+.restaurants__header {
+    font-size: 22px;
+    color: #1D1D1D;
+    margin-bottom: 16px;
+}
+
+.container {
+    width: 100%;
+}
+
+.restaurants__link {
+    text-decoration: none;
+}
+.restaurants__card {
+    text-align: left;
+}
+
+.restaurants__card:hover, .restaurants__card:focus, .restaurants__card:active {
+    background: #f7f7f7;
+}
+
+.restaurants__card:hover .restaurants__card-pic {
+    transform: scale(1.04);
+}
+
+.restaurants__card-pic {
+    width: 100%;
+    height: 100%;
+    transition: 0.25s all;
+}
+
+.restaurants__card-desc {
+    line-height: 24px;
+    margin: 16px 0 20px;
+    
+}
+.restaurants__card-desc-name {
+    margin: 4px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #1D1D1D;
+}
+
+.restaurants__card-desc-place {
+    margin: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #626262;
+}
+
+.restaurants__card-desc-dist {
+    margin: 4px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #1D1D1D;
+}
+
+/* Restaurants end */
+
+/* Footer start */
+
+.footer {
+    background: #262626;
+    font-size: 13px;
+    line-height: 15px;
+    color: #FFFFFF;
+}
+
+.footer__logo {
+    padding-top: 56px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.footer__menu {
+    padding-top: 32px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.footer__lang-names {
+    width: 227px;
+    height: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background: #3B3B3B;
+    border: none;
+    border-radius: 2px;
+    font-size: 13px;
+    line-height: 15px;
+    color: #FFFFFF;
+}
+
+.footer__social-wrapper {
+    width: 96px;
+    margin-top: 32px;
+    margin-bottom: 39px;
+}
+
+.footer__hashtag-uber{
+    font-size: 0;       /* от пробелов между инлайнами */
+}
+
+.hashtag {
+    font-size: 13px;
+    line-height: 15px;
+    color: #49A144;
+}
+.hash-uber{
+    font-size: 13px;
+    line-height: 15px; 
+}
+
+.footer__social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.footer__menu-link {
+    text-decoration: none;
+}
+
+.footer__menu-item {
+    font-size: 13px;
+    line-height: 15px;
+    color: #FFFFFF;
+    margin-top: 0;
+    margin-bottom: 23px;
+}
+
+.footer__download {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.footer__app {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-right: 40px;
+}
+
+.footer__app:last-child {
+    margin-right: 0;
+}
+
+.footer_down-inf {
+    font-size: 13px;
+    line-height: 15px;
+    color: #FFFFFF;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.footer__btn-up {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    right: 16px;
+    bottom: 24px;
+
+    background: #59BD5A;
+    border: none;
+    border-radius: 2px;
+    opacity: 0.85;
+}
+
+.footer__btn-up:hover {
+    opacity: 0.65;
+}
+/* Footer end */
+
+/* ----- Restaurant ----- */
+
+/* Intro start */
+.intro {
+    margin-top: 72px;
+    background: url(../img/jumbotron.jpg);
+    background-size: cover;
+}
+
+.intro__info { 
+    background: #FFFFFF;
+    box-shadow: 0px 0px 16px rgba(117, 117, 117, 0.2);
+    border-radius: 2px;
+}
+
+.intro__rest-name {
+    font-weight: normal;
+    color: #1D1D1D;
+}
+
+.intro__rest-time-col {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+.intro__desc-time { margin-bottom: 18px; }
+
+.intro__rest-desc {
+    font-size: 14px;
+    line-height: 14px;
+    color: #626262;
+}
+
+.intro__rest-time-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro__rest-time-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 32px;
+    background: #262626;
+    border-radius: 16px;
+}
+
+.intro__rest-time {
+    margin: 0;
+    font-size: 13px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+/* Intro start */
+
+/* Filter start */
+
+.filter {
+    border: none;
+    border-bottom: 1px solid rgba(117, 117, 117, 0.3);
+}
+
+.filter__nav {
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+
+.filter__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none; 
+    margin-top: 32px; 
+    margin-bottom: 29px; 
+    padding-left: 0; 
+}
+
+.filter__item {             /* отступы между элементами меню */
+    margin-right: 40px;
+}
+  
+.filter__item:last-child {  /*псевдоселектор последнего элемента*/
+    margin-right: 0;        /* без правого отступа - к краю*/
+}
+  
+.filter__link {             /* стиль из макета */
+    font-size: 15px;
+    line-height: 19px;
+    color: #626262;
+    text-decoration: none;
+}
+  
+.filter__link:hover, .filter__link:focus, .filter__link:active {
+    /*стили наведения, фокуса (выбор по таб), нажатия*/
+    opacity: .75;
+} 
+
+/* Filter end */
+
+/* Menu start */
+.menu {
+    margin-bottom: 80px;
+
+}
+
+.menu__container {
+    padding: 0;
+}
+
+.menu__card {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+.menu__card-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    border: 1px solid rgba(117, 117, 117, 0.2);
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+
+.menu__card-name {
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 16px;
+    color: #1D1D1D;
+    padding-top: 0px;
+    padding-left: 16px;
+}
+
+/* .card-wrap {
+    padding: 8px;
+    margin: 0;
+    border: 1px solid rgba(117, 117, 117, 0.2);
+    box-sizing: border-box;
+    border-radius: 2px;
+} */
+
+.menu__card-subname {
+    font-size: 13px;
+    line-height: 13px;
+    color: #626262;
+    padding-left: 16px;
+}
+
+.menu__card-price {
+    /* margin-top: 68px; */
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 15px;
+    color: #1D1D1D;
+    padding-left: 16px;
+    padding-bottom: 0px;
+}
+
+.menu__pic {
+    overflow: hidden;
+}
+
+.menu__card-pic {
+    min-height: 100%;
+    width: 100%;
+}
+
+.menu__card-wrap:hover, .menu__card-wrap:focus, .menu__card-wrap:active {
+    background: #f7f7f7;
+}
+
+.menu__card-wrap:hover .menu__card-pic {
+    transform: scale(1.04);
+}
+
+.menu__card-pic {
+    transition: 0.25s all;
+}
+
+/* Menu end */

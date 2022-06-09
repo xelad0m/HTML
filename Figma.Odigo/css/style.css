@@ -1,0 +1,937 @@
+/* lato-regular - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../fonts/lato-v17-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/lato-v17-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* lato-700 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('../fonts/lato-v17-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/lato-v17-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* lato-900 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  src: local(''),
+       url('../fonts/lato-v17-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/lato-v17-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {    /*псевдоэелементы*/
+    box-sizing: inherit;    /*наследовать от родителя*/
+}                           /*то есть распространить на все элементы*/
+
+body {            /* основные шрифтовые умолчанию имеет смысл сюда */
+  font-family: 'Lato';
+  font-style: normal;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.2;
+  color: #102746; /* например основной цвет шрифта на макете */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wrapper {
+  max-width: 1060px;
+  margin: 0 auto;   /*выравнивание внутри родителя по центру*/
+
+  padding: 0 15px;  /* не липнуть вплотную к краю */
+}
+
+.wrapper-full {
+  max-width: 1262px;
+  margin: 0 auto;
+
+  padding: 0 15px;  /* не липнуть вплотную к краю */
+}
+
+.secion-title {
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 42px;
+  color: #102746;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.secion-title::after {
+  /* полоску нарисуем псевдоэлементом */
+  display: block;
+  content: '';  /* обязательно пустой контент */
+  width: 253px;
+  height: 3px;
+  background-color: #006DFE;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+
+/* Header styles start */
+
+.header {
+  /* background-color: #000; */
+  padding-top: 56px;  /* контент отодвинуть вниз */ 
+  position: fixed;    /* прибить к верху экрана*/
+  top: 0;
+  left: 0;
+  width: 100%;        /* всегда 100% контейнера wrapper */
+  transition: 0.3s linear;
+  padding: 20px;
+  z-index: 999;       /* гарантированно поверх всего */
+}
+
+.header_active {
+  background: #0E1D28;
+}
+
+.header__wrapper {        /* лого + меню*/
+  display: flex;          /* строка полностью заполнится элементами*/
+  flex-wrap: wrap;        /* разрешить переносить на другую строку, иначе могут наезжать др.на др.*/
+  align-items: flex-end;  /* прилепить к нижнему краю блока */
+  justify-content: space-between; /* разнести по сторонам */
+}
+
+.header__list {           /*сами элементы меню*/
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header__item {           /* отступы между элементами меню */
+  margin-right: 82px;
+}
+
+.header__item:last-child { /*псевдоселектор последнего элемента*/
+  margin-right: 0;         /* без правого отступа - к краю*/
+}
+
+.header__link {           /* стиль из макета */
+  font-size: 18px;
+  line-height: 24px;
+  color:#fff;
+  text-decoration: none;
+}
+
+.header__link:hover, .header__link:focus, .header__link:active {
+  /*стили наведения, фокуса (выбор по таб), нажатия*/
+  opacity: .75;
+} 
+
+/* после основной верстки, на этапе адаптации под разные устройства */
+.header__burger {
+  display: none;
+  width: 40px;
+  height: 28px;
+  position: relative;
+}
+
+.burger__line {
+  /*полоска меню*/
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+}
+/* полоски прибиваем гвоздями */
+.burger__line_first { top: 0; } 
+.burger__line_second { top: 50%; transform: translateY(-50%); }
+.burger__line_third { bottom: 0; }
+
+/* Headee styles end */
+
+
+
+/* Intro styles start */
+
+.intro {
+  min-height: 100vh;  /* чтобы не могло вылезти за пределы */
+  /* т.ч. под хедером, т.к. он fixed */
+  background: url(../img/minified/intro-bg-min.jpg) no-repeat center;
+  background-size: cover;
+  padding-top: 263px;
+  padding-bottom: 218px; /*защитит от наезда на перекрытую следующую секцию*/
+}
+
+.intro__title {
+  max-width: 619px;
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 60px;
+  color: white;
+  margin-bottom: 22px;
+}
+
+.intro__subtitle {
+  max-width: 546px;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+  margin-bottom: 59px;
+}
+
+.search-form__info {
+  display: flex;
+  flex-wrap: wrap; /* уберет отступы между инлайновыми инпутами */
+}
+
+.search-form__field {
+  /* нужны кружочки перед placeholder */
+  /* но у инпутов нет псевдоэлементов after / before */
+  /* скопируем как картинку в фон */
+  /* background-color: transparent; 
+  background: url(../img/svg/circle-ico.svg) no-repeat left top; */
+  background: transparent url(../img/svg/circle-ico.svg) no-repeat left 6px;
+  background-size: 20px;
+  border: 0;  /* удалить рамку */
+  border-bottom: 2px solid #BFC0C5; /* нижняя как в макете */
+  margin-right: 60px;
+  width: 297px;
+  padding-left: 43px;
+  padding-bottom: 22px;
+  font-weight: 500;
+  font-size: 18px;
+  color: #FFFFFF;
+
+  margin-bottom: 20px;
+}
+
+.search-form__field::placeholder {
+  font-weight: 500;
+  font-size: 18px;
+  color: #FFFFFF;
+  opacity: 1;
+}
+
+.search-form__submit {
+  padding: 15px 39px; /*более безопасно чем жесткие w/h*/
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 24px;
+  color: #FFFFFF;
+  background: #1B7DFF;
+  border: 0;
+
+  margin-bottom: 20px;
+}
+
+.search-form__submit:hover, .search-form__submit:focus, .search-form__submit:active {
+  background: #0861D7;
+}
+
+/* Intro styles end */
+
+
+
+/* Benefits styles start */
+.benefits {
+  margin-bottom: 131px;
+}
+
+.benefits__wrap {
+  max-width: 1262px;
+  background-color: white;
+  margin: 0 auto;
+  box-shadow: 0px 2px 20px rgba(21, 24, 36, 0.15993);
+  position: relative; 
+}
+
+.benefits__title {
+  width: 100%;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 42px;
+  padding: 93px 100px 83px 100px;
+  position: absolute; /* абсолютное позиционирование */
+  top: 0;
+  left: 0;
+  transform: translateY(-100%); /*со сдвигом вверх*/
+  background-color: #fff;
+}
+
+.benefits__cards {
+  display: grid;
+  /* 3 шт с размером 1fr (т.е. одинкаовый размер)*/
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 55px;  
+  padding: 0 100px;
+}
+
+.benefits__card {
+  grid-column: span 1;  /* 1 card == 1 column */
+  margin-bottom: 112px;
+}
+
+.benefits__card-pic {
+  max-width: 66px; /* по самой широкой */
+  margin-bottom: 37px;
+}
+
+.benefits__card-thumb {
+  display: block; /* уберет доп.марджины, которые есть только у картинок*/ 
+}
+
+.benefits__card-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 26px;
+  color: #000;
+}
+
+.benefits__card-desc {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 39px;
+  color: #000;
+}
+
+.benefits__card-more {
+  display: inline-block;
+  padding-right: 59px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #006DFE;
+  text-decoration: none;
+  background: url(../img/svg/arrow-right-ico.svg) no-repeat 95% center;
+  transition: 0.1s all;
+}
+
+.benefits__card-more:hover, .benefits__card-more:focus {
+  background: url(../img/svg/arrow-right-ico.svg) no-repeat right center;
+}
+
+/* Benefits styles end */
+
+
+
+/* Places styles start */
+.places {
+  margin-bottom: 131px;
+}
+
+.places__caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between; /* прибить к разным краям */
+  margin-bottom: 36px;
+}
+.places__title {
+  margin-right: 15px; /* при сжатии экрана не сольется с view-all*/
+}
+.places__view-all {
+  padding-right: 59px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #006DFE;
+  text-decoration: none;
+  background: url(../img/svg/arrow-right-ico.svg) no-repeat right center;
+}
+
+.places__view-all:hover, .places__view-all:focus {
+  opacity: 0.75;
+}
+
+.places__cards {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);  /* 6 клеток сетки */
+  gap: 10px;
+}
+
+.places__card {
+  position: relative;
+  overflow: hidden; /*не показывать увеличенную(вылезающею) часть transfor: hover */
+}
+
+.places__card:hover .places__card-pic { /*наведение на контейнер -> изменяемый элемент*/
+  transform: scale(1.05);
+}
+
+.places__card::after {
+  /*вместо того, чтобы копировать картинки с макетным оверлеем*/
+  /*оверлей делается в виде псевдоэлемента*/
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color:rgba(21, 24, 36, 0.4);
+  position: absolute; /* обязательно указывать позицию*/
+  top: 0;
+  left: 0;
+  z-index: 2; /*поверх исходного элемента*/
+}
+
+.places__card-title {
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 60px;
+  color: #FFFFFF;
+  position: absolute;
+  bottom: 27px;
+  left: 29px;
+  z-index: 3; /* на передний план */
+}
+
+.places__card_size-lg {
+  grid-column: span 3;  /* 3 клетки на элемент (2 на строку) */
+}
+
+.places__card_size-sm {
+  grid-column: span 2;  /* 2 клетки на элемент (2 на строку) */
+}
+
+.places__card-pic {
+  width: 100%; /* или transform: scale ... */
+  transition: 0.15s all;
+}
+
+.places__card-pic_size-lg {
+  height: 354px;
+  object-fit: cover;
+}
+
+.places__card-pic_size-sm { /*модификатор для мелких*/
+  height: 283px;
+  object-fit: cover;
+}
+
+.places__card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+
+/* Places styles end */
+
+
+/* Tours styles start */
+
+.tours {
+  /* контейнер туров, отступ от следующей секции */
+  margin-bottom: 139px;
+}
+
+.tours__tour {
+  /* содержит 2 дочерних блока - картинка, описание */
+  display: grid;  /* дочерние блоки в сетку */
+  grid-template-columns: repeat(2, 1fr); /* по 2 на блок */
+  gap: 0 108px;  /* верх-низ право-лево*/
+  align-items: center;  /* внутри ячеек грида, по вертикали*/
+  margin-bottom: 77px;  
+}
+
+.tour__pic {
+  position: relative;
+  overflow: hidden; /*не показывать увеличенную(вылезающею) часть transfor: hover */
+}
+
+.tour__pic:hover .tour__thumb { /*наведение на контейнер -> изменяемый элемент*/
+  transform: scale(1.05);
+}
+
+.tour__thumb {  
+  width: 100%; /* или transform: scale ... */
+  transition: 0.15s all; /* плавность */ 
+}
+
+.tour__title {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 40px;
+  margin-bottom: 85px;
+}
+
+.tour__info {
+  padding-left: 47px;
+}
+
+.tour__desc {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 58px;
+}
+
+.tour__more {
+  /* ссылка - подробне, стили такие же как выше, но можно повторить, 
+  вдруг разные потом надо будет */
+  display: inline-block;
+  padding-right: 59px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #006DFE;
+  text-decoration: none;
+  background: url(../img/svg/arrow-right-ico.svg) no-repeat 95% center;
+  transition: 0.1s all;
+}
+
+.tour__more:hover, .tour__more:focus {
+  background: url(../img/svg/arrow-right-ico.svg) no-repeat right center;
+}
+
+/* Tours styles end */
+
+/* Top styles start */
+
+.top {
+  margin-bottom: 86px; /* 144 (до след.блока) - 58 (между карточками) */
+}
+
+.top__title {
+  margin-bottom: 54px;
+}
+
+.top__cards {
+  display: grid;  /* его дочерние элементы - сетка */
+  grid-template-columns: repeat(6, 1fr);
+  gap: 52px;
+}
+
+.top__card {
+  /* внутри карточки флекс вертикальный */
+  display: flex;  
+  flex-direction: column;
+  grid-column: span 2;
+  /* если разный размер текста внутри, то растянет по максмальному */
+  /* нижнюю кнопку прибить к низу - верхний марджин авто*/
+}
+
+.top__card-pic {
+  position: relative; /* относительно обычной static позиции*/ 
+  overflow: hidden; /*не показывать увеличенную(вылезающею) часть transfor: hover */
+  margin-bottom: 45px;
+}
+
+.top__card-pic:hover .top__card-thumb { /*наведение на контейнер -> изменяемый элемент*/
+  transform: scale(1.05);
+}
+
+.top__card-thumb {  
+  width: 100%; /* или transform: scale ... */
+  transition: 0.15s all; /* плавность */ 
+}
+
+.top__card-stats {
+  display: flex;      /* дочерние элементы*/
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;  /* жмутся право - выставим правым марджин авто*/
+
+  position: absolute; /* внутри родителя - точное место */
+  bottom: 0;          /* координаты позиции*/
+  left: 0;
+  width: 100%;        /* во весь контейнер */
+  background: rgba(21, 24, 36, 0.6);
+
+  padding: 16px 25px;
+}
+
+.top__card-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFFFFF;
+
+  margin: 0 auto 0 0; /* во флексе отступит сколько надо справа*/
+}
+
+.top__card-likes {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+  
+  padding-right: 20px;  /* просто место справа под иконку 4px+16px */
+  background: url(../img/svg/heart-ico.svg) no-repeat right;  
+  margin-right: 14px;
+}
+
+.top__card-comments {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+
+  padding-right: 23px; /* просто место справа под иконку 9px+14px */
+  background: url(../img/svg/comments-ico.svg) no-repeat right;    
+}
+
+.top__card-desc {
+  margin-bottom: 31px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.top__card-more {
+  /* кнопка - стилизованная ссылка */
+  padding: 12px 19px;
+  font-size: 16px;
+  line-height: 19px;
+  color: #FFFFFF;
+  background: #006DFE;
+  text-decoration: none;
+  /* прибить к низу в вертикальном флексе */
+  margin: auto 0 0 0;
+  width: 118px; /* а чтоб флекс не растягивал его - ширина фикс */ 
+}
+
+.top__card-more:hover, .top__card-more:focus, .top__card-more:active {
+  background: #0861D7;
+}
+
+/* Top styles end */ 
+
+
+/* Videos start */
+
+.videos {
+  width: 100%;
+}
+
+.videos__wrapper {
+  max-width: 1440px;
+  /* если сделать 100%, то само видео вылелезт за границы окна
+  на экранах с таким же соотношением сторон 9:16 */
+
+  margin: 0 auto;
+  position: relative;
+}
+
+.video__item {
+  /* 1. Большинство видео идут 9:16. 
+  2. padding в % всегда идет от ширины элемента.
+  3. Чтобы элемент-контейнер для видео всегда был по размеру видео 
+  (чтоб не отображались полосы плеера) задается padding-top: 56.2% 
+  (в используемом соотношении сторон 9:16) */
+  padding-top: 56.9%;
+}
+
+.video__element {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Videos end */
+
+/* Footer start */
+
+.footer {
+  background: #0E1D28;
+  padding: 119px 0;
+}
+
+.footer__item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer__logo {
+  width: 50%;
+}
+
+.footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.footer__menu-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+.footer__menu-link {
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+
+  text-decoration: none;
+}
+
+.footer__menu-link:hover, .footer__menu-link:focus .footer__menu-link:active {
+  opacity: 0.75;
+}
+
+/* Footer end */
+
+
+/* Media start */
+
+@media screen and (max-width: 960px) {
+  /*когда инлайны перестраиваются вертикально, чтоб не липли*/
+  .search-form__field {
+    margin-bottom: 25px;
+  }
+  .search-form__submit {
+    margin-bottom: 25px;
+  }
+  /*уменьшаем отступы у слишком разреженно стоящих элементов*/
+  .header {
+    padding: 25px 0 15px 0;
+  }
+  .benefits__cards {
+    padding: 0 15px;
+    gap: 35px;
+  }
+  .benefits__title {
+    padding: 55px 15px;
+  }
+  .benefits__wrap {
+    /*убрать тень, которая на малом экране не катит*/
+    box-shadow: none;
+  }
+  .benefits {
+    margin-bottom: 60px;
+  }
+  .benefits__card {
+    margin-bottom: 40px;
+  }
+  .places__card_size-lg {
+    grid-column: span 6;
+  }
+  .places__card_size-sm {
+    grid-column: span 6; 
+  }
+  .tours__tour {
+    gap: 35px;
+  }
+  .tour__info {
+    padding-left: 0;
+  }
+  .tour__title {
+    margin-bottom: 15px;
+  }
+  .tour__desc {
+    margin-bottom: 15px;
+  }
+  .top__cards {
+    gap: 55px 25px;
+  } 
+  .top__card {
+    grid-column: span 3;
+  }
+  .top__card-pic {
+    margin-bottom: 20px;
+  }
+  .top__card-desc {
+    margin-bottom: 20px;
+  }
+  .footer {
+    padding: 55px 0
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .header__burger {
+    display: block;
+  }
+  .header__nav {
+    /*на малых экранах панель навигации меняется кардинально*/
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    /*раскинуто на весь экран, залито сплошных цветом, прибито гвоздями*/
+    z-index: 10;
+    padding: 75px;
+    /*по умолчанию - сдвинуто вправо на свою ширину, т.е. скрыто*/
+    transform: translateX(100%);  
+    transition: 0.3s all; /* тоже можно, хотя хз */
+  }
+  .header__nav_active {
+    /*по JS скрипту выползает на место*/
+    transform: translateX(0); 
+    transition: 0.3s all; /* плавно */
+  }
+  .header__item {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+  .header__item:last-child {
+    /*последний пункт меню без отступа*/
+    margin-bottom: 0;
+  }
+  .header__link {
+    /*крупные буквы элеменов меню*/
+    font-size: 42px;
+    line-height: 48px;
+  }
+  .header__nav-close {
+    /*контейнер крестика закрытия бургер-меню*/
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    z-index: 11;
+  }
+  .header__nav-close-line {
+    /*палки крестика - прибиты гвоздями к контейнеру*/
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%; /*по середине*/
+  }
+  .header__nav-close-line:first-child {
+    /* повернуты на 45 градусов*/
+    transform: rotate(45deg);
+  }
+  .header__nav-close-line:last-child {
+    transform: rotate(-45deg);
+  }
+
+  /*дальше адаптируем верстку под мобильные*/
+  .header__wrapper {
+    padding-top: 28px;
+  }
+  .intro {
+    padding-top: 125px;
+  }
+  .intro__title {
+    font-size: 32px;
+    line-height: 48px;
+  }
+  .intro__subtitle {
+    font-size: 14px;
+  }
+  .search-form__field {
+    width: 100%;
+    margin-right: 0;
+    padding-bottom: 12px;
+    background: transparent url(../img/svg/circle-ico.svg) no-repeat left 2px;
+  }
+  .search-form__field::placeholder {
+    font-size: 16px;
+  }
+  .search-form__submit {
+   width: 100%; 
+  }
+  .benefits {
+    margin-bottom: 30px;
+  }
+  .benefits__card {
+    grid-column: span 3;
+    margin-bottom: 30px;
+  }
+  .benefits__card-pic {
+    margin-bottom: 20px;
+  }
+  .benefits__card-title {
+    margin-bottom: 12px;
+  }
+  .benefits__card-desc {
+    margin-bottom: 20px;
+  }
+  .secion-title {
+    margin-bottom: 25px;
+  }
+  .secion-title::after {
+    width: 148px;
+  }
+  .places {
+    margin-bottom: 70px;
+  }
+  .places__card-pic {
+    height: 240px;
+  }
+  .places__view-all {
+    margin-bottom: 25px;
+  }
+  .places__caption {
+    margin-bottom: 0;
+  }
+  .tour__pic, .tour__info {
+    grid-column: span 2;
+  }
+  .tour__pic {
+    margin-bottom: 10px;
+  }
+  .tour__pic_mob-first {
+    /*обратный порядок на мобиле, т.к. вторая карточная обратная к первой*/
+    grid-row-start: -1;
+  }
+  .tours__tour {
+    margin-bottom: 50px;
+  }
+  .tours {
+    margin-bottom: 70px;
+  }
+
+  .top__card {
+    grid-column: span 6;
+  }
+  .top__card-desc {
+    margin-bottom: 10px;
+  }
+
+  .footer__logo {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  .footer__nav {
+    width: 100%;
+  }
+  .footer__menu-title {
+    font-size: 16px;
+    line-height: 16px;
+  }
+  .footer__menu-link {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    padding: 15px 0 15px 0;
+  }
+  .header__wrapper {
+    padding-top: 15px;
+  }
+  .header__nav {
+    padding: 75px 30px;
+  }
+  .header__nav-close {
+    top: 15;
+    right: 15px;
+  }
+
+}
+/* Media end */

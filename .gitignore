@@ -10,18 +10,20 @@
 !scss/**
 !vendor/**
 
+!exercises/
+
 !exercises/yandex.four.rules/
-!exercises/yandex.four.rules/*
+!exercises/yandex.four.rules/**
 
 !exercises/yandex.Procrastinate/
-!exercises/yandex.Procrastinate/*
+!exercises/yandex.Procrastinate/**
 
 !exercises/Final.PiperNet/
-!exercises/Final.PiperNet/*
+!exercises/Final.PiperNet/**
 
 !exercises/Final.UberEats/
-!exercises/Final.UberEats/*
+!exercises/Final.UberEats/**
 
 !Figma.Odigo/
-!Figma.Odigo/*
+!Figma.Odigo/**
 
