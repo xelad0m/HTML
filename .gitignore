@@ -6,8 +6,11 @@
 !README.md
 
 !index.html
+!img/
 !img/**
+!scss/
 !scss/**
+!vendor/
 !vendor/**
 
 !exercises/
